@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  --cross-color: red;
+  --cross-height: 5px;
+  --circl-color: blue;
+  --circl-height: 5px;
+}
+.grid {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+}
+.grid > div {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.grid > div:hover {
+  background-color: rgba(50, 77, 82, 0.247);
+}
+.cross {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.grid div.cross::after {
+  content: "";
+  background-color: var(--cross-color);
+  width: 50%;
+  height: var(--cross-height);
+  transform: rotate(90deg);
+  position: absolute;
+}
+.grid div.cross::before {
+  content: "";
+  background-color: var(--cross-color);
+  width: 50%;
+  height: var(--cross-height);
+  position: absolute;
+}
+
+.grid div.circl::after {
+  content: "";
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border: var(--circl-height) solid var(--circl-color);
+}

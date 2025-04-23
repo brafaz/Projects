@@ -1,0 +1,5 @@
+.add__input {
+  background-color: var(--bg2-color);
+  border: var(--border-color) 1px solid;
+  color: var(--text-color);
+}

@@ -2,4 +2,18 @@
   background-color: var(--bg2-color);
   border: var(--border-color) 1px solid;
   color: var(--text-color);
+  font-size: 20px;
+  padding: 5px 20px;
+}
+.add__input::placeholder {
+  color: var(--text-color);
+}
+.add {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  gap: 20px;
 }

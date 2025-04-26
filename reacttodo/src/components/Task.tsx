@@ -1,23 +1,32 @@
-import React, { useRef } from "react";
-//import "./styles/Addinput.css";
-import { task } from "../utils/interfaces";
-function Task({ task }: any) {
+import { useState } from "react";
+
+import { taskprops } from "../utils/interfaces";
+
+function Task({ task, setChecked, remove }: taskprops) {
+  const [check, setCheck] = useState<boolean>(task.active);
+  const checked = () => {
+    setCheck((pre) => {
+      return !pre;
+    });
+    setChecked(task.id, !check);
+  };
+
   return (
     <li
       key={task.id}
-      className={`todo__todo todo-id-${task.id} ${
-        !task.active ? "" : "todo__todo-noactive"
-      }`}
+      className={`todo__todo ${check ? "" : "todo__todo-noactive"}`}
     >
       <input
         type="checkbox"
         name="active"
         id="active-check"
-        // checked={task.active ? true : false}
-        defaultChecked={true}
+        checked={!check}
+        onChange={checked}
       />
       <p className="task__text">{task.text}</p>
-      <button className="btn ">Удалить</button>
+      <button className="btn btn-delete" onClick={() => remove(task.id)}>
+        Удалить
+      </button>
     </li>
   );
 }
